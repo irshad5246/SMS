@@ -1,0 +1,201 @@
+﻿@model SMS.Web.Areas.Dashboard.ViewModels.UsersActionModel
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                @if (!string.IsNullOrEmpty(Model.ID))
+                {
+                    <span> Edit Users</span>
+                }
+                else
+                {
+                    <span>Create Users </span>
+                }
+
+            </h5>
+
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="accomodationTypeCreate">
+                <input type="hidden" name="ID" value="@Model.ID" />
+                @*<div class="form-group">
+                        <label>Role<span class="text-danger">*</span></label>
+                        <select class="form-control" name="AccomodationPackageID">
+                            @if (Model.Roles != null)
+                            {
+                                foreach (var role in Model.Roles)
+                                {
+                                    <option value="@role.Id" @(role.Id == Model.RoleID ? "Selected" :string.Empty)>
+                                     @role.Name
+                                    </option>
+                                }
+                            }
+
+                        </select>
+                    </div>*@
+                <div class="form-group">
+                    <label class="col-form-label">FirstName<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="FirstName" placeholder="Enter User FirstName" value="@Model.FirstName">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">LastName<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="LastName" placeholder="Enter User LastName" value="@Model.LastName">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Email<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="Email" placeholder="Enter User Email" value="@Model.Email">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Username<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="UserName" placeholder="Enter Username" value="@Model.Username">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Nobile Number<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="PhoneNumber" placeholder="Enter Username" value="@Model.PhoneNumber">
+                </div>
+                @if (!string.IsNullOrEmpty(Model.ID))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CountryID, "CountryID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.DropDownList("CountryID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.StateID, "StateID", htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div>
+                                @Html.DropDownList("StateID", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.StateID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                       <div class="form-group">
+                        @Html.LabelFor(model => model.CityID, "CityID", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.DropDownList("CityID", null, htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        @Html.Label("Country", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.DropDownListFor(model => model.CountryID, new SelectList(Model.CountriesList, "ID", "Name", "Select Country"), htmlAttributes: new { @class = "form-control", @onchange = "FillStates()" })
+                            @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.DropDownListFor(model => model.StateID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name", "Select State"), htmlAttributes: new { @class = "form-control", @onchange = "FillCities()" })
+                            @Html.ValidationMessageFor(model => model.StateID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            @Html.DropDownListFor(model => model.CityID, new SelectList(Enumerable.Empty<SelectListItem>(), "ID", "Name", "Select State"), htmlAttributes: new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                }
+               
+            @*<div class="form-group">
+            <label>Country<span class="text-danger">*</span></label>
+            <select class="form-control" name="CountryID">
+                @if (Model.CountriesList != null)
+                {
+                    foreach (var country in Model.CountriesList)
+                    {
+                        <option value="@country.ID" @(country.ID == Model.CountryID ? "Selected" :string.Empty)  onchange = "FillStates()">
+                         @country.Name
+                           
+                        </option>
+                    }
+                }
+
+            </select>
+        </div>*@
+                @*<div class="form-group">
+                    <label>State<span class="text-danger">*</span></label>
+                    <select class="form-control" name="StateID">
+                        @if (Model.StatesList != null)
+                {
+                    foreach (var state in Model.StatesList)
+                    {
+                                <option value="@state.ID"  @(state.ID == Model.StateID ? "Selected" : string.Empty)>
+                                    @state.Name
+                                </option>
+                            }
+                        }
+
+                    </select>
+                </div>*@
+                @*<div class="form-group">
+                    <label class="col-form-label">Country<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="Country" placeholder="Enter  Country" value="@Model.Country">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">City<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="City" placeholder="Enter City" value="@Model.City">
+                </div>*@
+
+                <div class="form-group">
+                    <label class="col-form-label">Address<span class="text-danger">*</span></label>
+                    <textarea type="text" class="form-control" name="Address" placeholder="Enter Address">@Model.Address</textarea>
+                </div>
+            </form>
+            <div class="errorDiv">
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            @if (!string.IsNullOrEmpty(Model.ID))
+            {
+                <button type="button" class="btn btn-primary" id="saveBtn"><i class="fas fa-save mr-1"></i>Update</button>
+
+            }
+            else
+            {
+                <button type="button" class="btn btn-primary" id="saveBtn"><i class="fas fa-save mr-1"></i>Save</button>
+
+            }
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Close</button>
+
+        </div>
+    </div>
+}
+<script src="~/Scripts/mylocations.filler.js"></script>
+<script>
+
+    $("#saveBtn").click(function () {
+
+        $.ajax({
+            url : '@Url.Action("Action", "Users")',
+            type: 'POST',
+            data: $("#accomodationTypeCreate").serialize()
+        })
+			.done(function (response) {
+			    if(response)
+			    {
+			        location.reload();
+			        //$('#accomodatioTypeForm').modal('toggle');
+			        //$("#listingArea").html(response);
+			    }
+			    else
+			    {
+			        $(".errorDiv").html(response.Message)
+			    }
+
+			});
+    });
+
+</script>
