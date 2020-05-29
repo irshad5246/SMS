@@ -17,12 +17,14 @@ namespace SMS.Data
         {
 
         }
-
+        
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Cities { get; set; }
         //public DbSet<EndUser> EndUsers { get; set; }
         public DbSet<Image> Images { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Class> Classes { get; set; }
 
         public static SMSContext Create()
         {

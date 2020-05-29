@@ -1,40 +1,39 @@
-﻿@model SMS.Web.Areas.Dashboard.ViewModels.RolesListingModel
+﻿@model SMS.Web.Areas.Dashboard.ViewModels.CourseListingModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
 }
 
-
 <div class="content-wrapper">
- 
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark"> Roles <span class="badge badge-info right">@Model.Pager.TotalItems</span></h1>
+                    <h1 class="m-0 text-dark"> Courses <span class="badge badge-info right">@Model.Pager.TotalItems</span></h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"> Roles</li>
+                        <li class="breadcrumb-item active"> Courses</li>
                     </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
     </section>
     <section class="content">
-        <div class="row mb-3">
+        <div class="row mb-2">
             <div class="col col-lg-12">
                 <form>
                     <div class="input-group">
 
                         <input type="text" name="searchterm" class="form-control" value="@Model.SearchTerm" placeholder="Search" required>
-                      
+
 
                         <div class="input-group-append">
                             <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search mr-1"></i>Search</button>
-                            <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Roles")"><i class="fas fa-redo-alt mr-1"></i>Reset</a>
-                            <button data-href="@Url.Action("Action", "Roles")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#accomodatioTypeForm"><i class="fas fa-plus mr-1"></i>Create</button>
+                            <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Courses")"><i class="fas fa-redo-alt mr-1"></i>Reset</a>
+                            <button data-href="@Url.Action("Action", "Courses")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#accomodatioTypeForm"><i class="fas fa-plus mr-1"></i>Create</button>
                         </div>
 
                     </div>
@@ -47,19 +46,16 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Role List</h3>
+                        <h3 class="card-title">Course List</h3>
                     </div>
                     <div id="listingArea">
                         @{Html.RenderPartial("_Listing", Model);}
                     </div>
                 </div>
-                </div>
             </div>
-</section>
+        </div>
+    </section>
 </div>
-
-
-<!-- Modal -->
 <div class="modal fade" id="accomodatioTypeForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
 

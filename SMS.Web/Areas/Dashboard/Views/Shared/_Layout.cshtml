@@ -16,7 +16,10 @@
    
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!--Datatable-->
     <!-- Tempusdominus Bbootstrap 4 -->
+    <link href="~/Areas/Dashboard/Content/plugins/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Areas/Dashboard/Content/plugins/css/responsive.bootstrap4.min.css" rel="stylesheet" />
     @*<link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">*@
     <link href="~/Areas/Dashboard/Content/plugins/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
     <!-- iCheck -->
@@ -320,7 +323,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Courses")" class="nav-link">
                                         <i class="fas fa-project-diagram mr-1"></i>
                                         <p>Cources</p>
                                     </a>
@@ -670,7 +673,11 @@
   $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
- 
+    <script src="~/Areas/Dashboard/Content/plugins/Js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Dashboard/Content/plugins/Js/dataTables.responsive.min.js"></script>
+
+    <script src="~/Areas/Dashboard/Content/plugins/Js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Dashboard/Content/plugins/Js/responsive.bootstrap4.min.js"></script>
     <script src="~/Areas/Dashboard/Content/plugins/Js/bootstrap.bundle.min.js"></script>
     <!-- ChartJS -->
   
@@ -709,5 +716,22 @@
     <!-- AdminLTE for demo purposes -->
     
     <script src="~/Areas/Dashboard/Content/plugins/Js/demo.js"></script>
+    <script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true,
+      "autoWidth": false,
+    });
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+    </script>
 </body>
 </html>

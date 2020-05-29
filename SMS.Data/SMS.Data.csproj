@@ -67,6 +67,18 @@
     <Compile Include="Migrations\202005170733268_addclmn.Designer.cs">
       <DependentUpon>202005170733268_addclmn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005291428097_addtabCources.cs" />
+    <Compile Include="Migrations\202005291428097_addtabCources.Designer.cs">
+      <DependentUpon>202005291428097_addtabCources.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005291604242_addClmnDes.cs" />
+    <Compile Include="Migrations\202005291604242_addClmnDes.Designer.cs">
+      <DependentUpon>202005291604242_addClmnDes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005291751240_addClass.cs" />
+    <Compile Include="Migrations\202005291751240_addClass.Designer.cs">
+      <DependentUpon>202005291751240_addClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CitiesRepository.cs" />
@@ -95,6 +107,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005170733268_addclmn.resx">
       <DependentUpon>202005170733268_addclmn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291428097_addtabCources.resx">
+      <DependentUpon>202005291428097_addtabCources.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291604242_addClmnDes.resx">
+      <DependentUpon>202005291604242_addClmnDes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005291751240_addClass.resx">
+      <DependentUpon>202005291751240_addClass.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

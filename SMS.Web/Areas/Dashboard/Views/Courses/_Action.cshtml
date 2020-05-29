@@ -1,0 +1,81 @@
+﻿@model SMS.Web.Areas.Dashboard.ViewModels.CourseActionModel
+
+@if (Model != null)
+{
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">
+                @if (Model.ID > 0)
+                {
+                    <span> Edit Courses</span>
+                }
+                else
+                {
+                    <span>Create Courses</span>
+                }
+
+            </h5>
+
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="accomodationTypeCreate">
+                <input type="hidden" name="ID" value="@Model.ID" />
+                <div class="form-group">
+                    <label class="col-form-label">Name<span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" name="Name" placeholder="Enter Courses Name" value="@Model.Name">
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Description<span class="text-danger">*</span></label>
+                    <textarea class="form-control" name="Description" placeholder="Enter Courses Description">@Model.Description</textarea>
+                </div>
+            </form>
+            <div class="errorDiv">
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            @if (Model.ID > 0)
+            {
+                <button type="button" class="btn btn-primary" id="saveBtn"><i class="fas fa-save mr-1"></i>Update</button>
+
+            }
+            else
+            {
+                <button type="button" class="btn btn-primary" id="saveBtn"><i class="fas fa-save mr-1"></i>Save</button>
+
+            }
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-1"></i>Close</button>
+
+        </div>
+    </div>
+}
+
+<script>
+
+    $("#saveBtn").click(function () {
+
+        $.ajax({
+            url : '@Url.Action("Action", "Courses")',
+            type: 'POST',
+            data: $("#accomodationTypeCreate").serialize()
+        })
+			.done(function (response) {
+			    if(response)
+			    {
+			        location.reload();
+			        //$('#accomodatioTypeForm').modal('toggle');
+			        //$("#listingArea").html(response);
+			    }
+			    else
+			    {
+			        $(".errorDiv").html(response.Message)
+			    }
+
+			});
+    });
+
+</script>
