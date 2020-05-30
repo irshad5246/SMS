@@ -1,0 +1,59 @@
+﻿
+@model SMS.Web.Areas.Dashboard.ViewModels.SubjectListingModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper">
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2 class="m-0 text-dark"> Subjects </h2>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active"> Subjects</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">List of Subject</h3>
+                        <button data-href="@Url.Action("Action", "Subjects")" class="data-btn btn btn-outline-success btn-sm float-sm-right" type="button" data-toggle="modal" data-target="#accomodatioTypeForm"><i class="fas fa-plus mr-1"></i>Create New Class</button>
+                    </div>
+                    <div id="listingArea">
+                        @{Html.RenderPartial("_Listing", Model);}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<div class="modal fade" id="accomodatioTypeForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>
+
+<script>
+    $(".data-btn").click(function() {
+        $.ajax({
+            url:$(this).attr('data-href'),
+            type: "GET"
+        }).done(function (response) {
+            $("#accomodatioTypeForm .modal-dialog").html(response);
+        //$('#accomodatioTypeForm').modal('toggle');
+        //$("#contentArea").html(response);
+    });
+    });
+</script>

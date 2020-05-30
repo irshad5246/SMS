@@ -289,7 +289,7 @@
                                     <a href="@Url.Action("Index","Users")" class="nav-link">
                                         <i class="fas fa-users-cog nav-icon"></i>
                                         <p>
-                                            Userlist
+                                            UserList
                                             <span class="badge badge-info right">4</span>
                                         </p>
                                     </a>
@@ -329,16 +329,23 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="nav-link">
+                                    <a href="@Url.Action("Index","Classes")" class="nav-link">
                                         <i class="fab fa-cloudsmith mr-1"></i>
-                                        
+
                                         <p>Classes</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="@Url.Action("Index","Subjects")" class="nav-link">
+                                        <i class="fas fa-share-alt-square mr-1"></i>
+
+                                        <p>Subject</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-user-shield mr-1"></i>
-                                        <p>Students</p>
+                                        <p>StudentList</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -358,7 +365,7 @@
                         </li>
                         <li class="nav-header">Students</li>
                         <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
+                            <a href="@Url.Action("Index","Courses")" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
                                     Courses
@@ -367,7 +374,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
+                            <a href="@Url.Action("Index","Classes")" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
                                     Classes

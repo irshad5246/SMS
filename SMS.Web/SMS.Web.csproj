@@ -202,6 +202,7 @@
     <Compile Include="Areas\Dashboard\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\RolesController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\StudentsController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\SubjectsController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\UsersController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModels\RolesViewModels.cs" />
@@ -318,6 +319,10 @@
     <Content Include="Areas\Dashboard\Views\Classes\_Listing.cshtml" />
     <Content Include="Areas\Dashboard\Views\Classes\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\Classes\_Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Subjects\Index.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Subjects\_Listing.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Subjects\_Delete.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Subjects\_Action.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

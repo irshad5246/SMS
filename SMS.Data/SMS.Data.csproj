@@ -79,6 +79,18 @@
     <Compile Include="Migrations\202005291751240_addClass.Designer.cs">
       <DependentUpon>202005291751240_addClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005301205081_addtableSTS.cs" />
+    <Compile Include="Migrations\202005301205081_addtableSTS.Designer.cs">
+      <DependentUpon>202005301205081_addtableSTS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301359370_addclmimgurl.cs" />
+    <Compile Include="Migrations\202005301359370_addclmimgurl.Designer.cs">
+      <DependentUpon>202005301359370_addclmimgurl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005301423495_decClm.cs" />
+    <Compile Include="Migrations\202005301423495_decClm.Designer.cs">
+      <DependentUpon>202005301423495_decClm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\CitiesRepository.cs" />
@@ -116,6 +128,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005291751240_addClass.resx">
       <DependentUpon>202005291751240_addClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301205081_addtableSTS.resx">
+      <DependentUpon>202005301205081_addtableSTS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301359370_addclmimgurl.resx">
+      <DependentUpon>202005301359370_addclmimgurl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005301423495_decClm.resx">
+      <DependentUpon>202005301423495_decClm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

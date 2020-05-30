@@ -69,6 +69,8 @@
     <Compile Include="SMSUser.cs" />
     <Compile Include="State.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="Subject.cs" />
+    <Compile Include="Teacher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

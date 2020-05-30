@@ -1,7 +1,7 @@
-﻿@model SMS.Web.Areas.Dashboard.ViewModels.ClassListingModel
+﻿@model SMS.Web.Areas.Dashboard.ViewModels.SubjectListingModel
 
 
-@if (Model != null && Model.Classes != null && Model.Classes.Count() > 0)
+@if (Model != null && Model.Subjects != null && Model.Subjects.Count() > 0)
 {
     <div class="card-body">
         <table id="example1" class="table table-bordered table-striped">
@@ -15,22 +15,22 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var classes in Model.Classes)
+                @foreach (var subject in Model.Subjects)
                 {
                     <tr>
                         <td>
-                            @classes.ID
+                            @subject.ID
                         </td>
                         <td>
-                            @classes.Name
+                            @subject.Name
                         </td>
                         <td>
-                            @classes.Description
+                            @subject.Description
                         </td>
 
                         <td>
-                            <button data-href="@Url.Action("Action", "Classes",new {ID=classes.ID })" data-toggle="modal" data-target="#accomodatioTypeForm" type="button" class="data-btn btn btn-outline-primary btn-sm"><i class="fas fa-edit mr-1"></i>Edit</button>
-                            <button data-href="@Url.Action("Delete", "Classes",new {ID=classes.ID })" data-toggle="modal" data-target="#accomodatioTypeForm" type="button" class="data-btn btn btn-outline-danger btn-sm"><i class="fas fa-trash mr-1"></i>Delete</button>
+                            <button data-href="@Url.Action("Action", "Subjects",new {ID=subject.ID })" data-toggle="modal" data-target="#accomodatioTypeForm" type="button" class="data-btn btn btn-outline-primary btn-sm"><i class="fas fa-edit mr-1"></i>Edit</button>
+                            <button data-href="@Url.Action("Delete", "Subjects",new {ID=subject.ID })" data-toggle="modal" data-target="#accomodatioTypeForm" type="button" class="data-btn btn btn-outline-danger btn-sm"><i class="fas fa-trash mr-1"></i>Delete</button>
                         </td>
                     </tr>
                 }

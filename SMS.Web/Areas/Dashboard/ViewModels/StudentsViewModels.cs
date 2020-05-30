@@ -42,4 +42,21 @@ namespace SMS.Web.Areas.Dashboard.ViewModels
 
         public string Description { get; set; }
     }
+    public class SubjectListingModel
+    {
+        public IEnumerable<Subject> Subjects { get; set; }
+
+
+        public string SearchTerm { get; set; }
+
+        public Pager Pager { get; set; }
+    }
+    public class SubjectActionModel
+    {
+        public int ID { get; set; }
+
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+    }
 }
