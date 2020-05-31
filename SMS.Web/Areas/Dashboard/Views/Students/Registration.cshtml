@@ -1,0 +1,437 @@
+﻿
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Areas/Dashboard/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" style="min-height:653px;">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h4 class="m-0 text-dark">Registration</h4>
+                </div><!-- /.col -->
+
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Registration</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-primary card-outline">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-exclamation-circle mr-1"></i>
+                        Student Management
+                        </h3>
+                        
+                    </div>
+
+                    <form name="myForm" method="post" id="my_form" enctype="multipart/form-data" action="" onsubmit="return validate();">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Registration No.</label><br>
+                                        <input type="text" name="student_registration_number" value="2" class="form-control">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Student New Old</label>
+                                        <select class="form-control" name="stuent_old_or_new">
+                                            <option value="New">New</option>
+                                            <option value="Old">Old</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Class<font style="color:red"><b>*</b></font></label>
+                                        <select class="form-control" name="student_class" id="student_class" onchange="for_stream(this.value);get_group_subject();" required="">
+                                            <option value="">Select Class</option>
+                                            <option value="NURSERY">NURSERY</option>
+                                            <option value="LKG">LKG</option>
+                                            <option value="UKG">UKG</option>
+                                            <option value="1ST">1ST</option>
+                                            <option value="2ND">2ND</option>
+                                            <option value="3RD">3RD</option>
+                                            <option value="4TH">4TH</option>
+                                            <option value="5TH">5TH</option>
+                                            <option value="6TH">6TH</option>
+                                            <option value="7TH">7TH</option>
+                                            <option value="8TH">8TH</option>
+                                            <option value="9TH">9TH</option>
+                                            <option value="10TH">10TH</option>
+                                            <option value="11TH">11TH</option>
+                                            <option value="12TH">12TH</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 " id="student_class_stream_div" style="display:none;">
+                                    <div class="form-group">
+                                        <label>Stream<font style="color:red"><b>*</b></font></label>
+                                        <select class="form-control" name="student_class_stream" id="student_class_stream" onchange="get_group(this.value);get_group_subject();">
+                                            <option value="">Select Stream</option>
+                                            <option value="science">science</option>
+                                            <option value="Commerce">Commerce</option>
+                                            <option value="Arts ">Arts </option>
+                                            <option value="Home Science ">Home Science </option>
+                                            <option value="Humanities">Humanities</option>
+                                            <option value="Agriculture">Agriculture</option>
+                                            <option value="Environmental Studies">Environmental Studies</option>
+                                            <option value="Maths">Maths</option>
+                                            <option value="BIOLOGY">BIOLOGY</option>
+                                            <option value="सइए">सइए</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 " id="student_class_group_div" style="display:none;">
+                                    <div class="form-group">
+                                        <label>Group<font style="color:red"><b>*</b></font></label>
+                                        <select class="form-control" name="student_class_group" id="student_class_group" onchange="get_group_subject();">
+                                            <option value="">Select Group</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-8 " id="student_class_group_subject_div" style="display:none;">
+                                    <div class="form-group">
+                                        <label>Group Subject</label>
+                                        <input type="text" name="student_class_group_subject" id="student_class_group_subject" value="" class="form-control new_student" readonly="">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3" style="display:none;">
+                                    <div class="form-group">
+                                        <label>School_name<font style="color:red"><b>*</b></font></label>
+                                        <input type="text" name="school_name123" id="school_name123" value="SIMPTION TECH PVT LTD" class="form-control new_student">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <input type="hidden" name="student_id_generate" id="student_id_generate" value="229" class="form-control ">
+                                        <label>student Name<font style="color:red"><b>*</b></font></label>
+                                        <input type="text" name="student_name" id="student_name" required="" placeholder="student Name" value="" class="form-control new_student">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Father's Name</label>
+                                        <input type="text" name="student_father_name" id="student_father_name" placeholder="Father's Name" value="" class="form-control new_student">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Mother's Name</label>
+                                        <input type="text" name="student_mother_name" id="student_mother_name" placeholder="Mother's Name" value="" class="form-control new_student">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Father Contact No1.<font style="color:red"><b>*</b></font></label>
+                                        <input type="number" minlength="10" maxlength="10" name="student_father_contact_number" placeholder="Father Contact No1." oninput="sms_contact(this.value);" value="" id="student_father_contact_number" class="form-control new_student">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Father Contact No2.</label>
+                                        <input type="number" minlength="10" maxlength="10" name="student_father_contact_number2" placeholder="Father Contact No2." value="" id="student_father_contact_number2" class="form-control new_student">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Date Of Birth<font style="color:red"><b>*</b></font></label>
+                                        <input type="date" name="student_date_of_birth" placeholder="" oninput="get_dob_in_words(this.value);" id="student_date_of_birth" value="" class="form-control new_student" required="">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>DoB In Word</label>
+                                        <input type="text" id="student_date_of_birth_in_word1" name="student_date_of_birth_in_word" value="" class="form-control" placeholder="DoB In Word" readonly="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Gender</label><br>
+                                        <select class="form-control new_student" name="student_gender" id="student_gender">
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Date Of Admission</label>
+                                        <input type="date" name="student_date_of_admission" placeholder="" value="2020-05-31" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Admission Type</label>
+                                        <select class="form-control" name="student_admission_type" id="student_admission_type">
+                                            <option value="Regular">Regular</option>
+                                            <option value="Private">Private</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Admission Scheme</label>
+                                        <select class="form-control" name="student_admission_scheme">
+                                            <option value="NON-RTE">NON-RTE</option>
+                                            <option value="RTE">RTE</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="display:none">
+                                    <div class="form-group">
+                                        <label>Medium</label>
+                                        <select class="form-control" name="student_medium">
+                                            <option value="">Select</option>
+                                            <option value="English">English</option>
+                                            <option value="Hindi">Hindi</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="display:none">
+                                    <div class="form-group">
+                                        <label>BOARD</label>
+                                        <select class="form-control" name="student_board">
+                                            <option value="">Select</option>
+                                            <option value="CBSE">CBSE</option>
+                                            <option value="MP Board">MP Board</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="display:none">
+                                    <div class="form-group">
+                                        <label>SHIFT</label>
+                                        <select class="form-control" name="student_shift">
+                                            <option value="">Select</option>
+                                            <option value="Shift2">Shift2</option>
+                                            <option value="Shift1">Shift1</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Fee Category</label>
+                                        <select class="form-control" name="student_fee_category">
+                                            <option value="Old Student|?|category1">Old Student</option>
+                                            <option value="New Student |?|category2">New Student </option>
+                                            <option value="fourth child|?|category3">fourth child</option>
+                                            <option value="Staff Children|?|category4">Staff Children</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Bus</label>
+                                        <select class="form-control" name="student_bus">
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Hostel</label>
+                                        <select class="form-control" name="student_hostel">
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Library</label>
+                                        <select class="form-control" name="student_library">
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3" style="">
+                                    <div class="form-group">
+                                        <label>Registration Fees</label>
+                                        <input type="text" name="student_registration_fee" placeholder="Registration Fees" value="" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>SMS Contact No</label>
+                                        <input type="text" name="student_sms_contact_number" id="student_sms_contact_number" placeholder="SMS Contact No" value="" class="form-control">
+                                    </div>
+                                </div>
+
+                                @*<div class="col-md-12">*@
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Student Address</label>
+                                        <input type="text" name="student_adress" id="student_adress" placeholder="Student Address" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Village/City</label>
+                                        <input type="text" name="student_city" id="student_city" placeholder="Village/City" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Block</label>
+                                        <input type="text" name="student_block" id="student_block" placeholder="Block" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>District</label>
+                                        <input type="text" name="student_district" id="student_district" placeholder="District" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <input type="text" name="student_state" id="student_state" placeholder="State" value="" class="form-control">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Pincode</label>
+                                        <input type="text" name="student_pincode" id="student_pincode" placeholder="Pincode" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Landmark</label>
+                                        <input type="text" name="student_landmark" id="student_landmark" placeholder="Landmark" value="" class="form-control">
+                                    </div>
+                                </div>
+                                @*</div>*@
+
+
+                            </div>
+
+                            <div class="row">
+
+                                @*<div class="col-md-12 ">*@
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Student Photo</label>
+                                        <input type="file" name="student_photo" id="student_photo" placeholder="" onchange="check_file_type(this,'student_photo','show_student_photo','image');" class="form-control" accept=".gif, .jpg, .jpeg, .png" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <img id="show_student_photo" src="~/images/student_blank.png" width="60px" height="60px">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Father Photo</label>
+                                        <input type="file" name="father_photo" id="father_photo" placeholder="" onchange="check_file_type(this,'father_photo','show_father_photo','image');" class="form-control" accept=".gif, .jpg, .jpeg, .png" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <img id="show_father_photo" src="~/images/profile.jpg" width="60px" height="60px">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Mother Photo</label>
+                                        <input type="file" name="mother_photo" id="mother_photo" placeholder="" onchange="check_file_type(this,'mother_photo','show_mother_photo','image');" class="form-control" accept=".gif, .jpg, .jpeg, .png" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <img id="show_mother_photo" src="~/images/student_blank.png" width="60px" height="60px">
+                                    </div>
+                                </div>
+                                @*</div>*@
+                                @*<div class="col-md-12 ">*@
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Remark 1</label>
+                                        <input type="text" name="student_remark_1" placeholder="Remark 1" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Remark 2</label>
+                                        <input type="text" name="student_remark_2" placeholder="Remark 2" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Remark 3</label>
+                                        <input type="text" name="student_remark_3" placeholder="Remark 3" value="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-3 ">
+                                    <div class="form-group">
+                                        <label>Remark 4</label>
+                                        <input type="text" name="student_remark_4" placeholder="Remark 4" value="" class="form-control">
+                                    </div>
+                                </div>
+                                @*</div>*@
+                                <div class="col-md-12 ">
+                                    <div class="col-md-8 ">
+                                        <label><input type="checkbox" name="myCheck" id="myCheck" onclick="myFunction()">&nbsp;&nbsp;&nbsp;Check For Message</label>
+                                        <div class="form-group" id="text" style="display:none">
+                                            <input type="text" name="sms" placeholder="" id="contact" class="form-control">
+                                            <input type="hidden" name="send_sms" placeholder="" id="send_sms" class="form-control">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <center><input type="submit" name="finish" id="submitButtonId" value="Submit" class="btn btn-success"></center>
+                                </div>
+                            </div>
+
+                            </div>
+                        <!---------------------------------------------End Registration form--------------------------------------------------------->
+                        <!-- /.box-body -->
+                    
+                        </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

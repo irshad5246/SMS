@@ -13,5 +13,12 @@ namespace SMS.Web.Areas.Dashboard.Controllers
         {
             return View();
         }
+
+        public ActionResult Registration()
+        {
+            return View();
+        }
+
+
     }
 }
