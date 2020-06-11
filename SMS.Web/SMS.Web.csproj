@@ -327,6 +327,9 @@
     <Content Include="Areas\Dashboard\Views\Subjects\_Delete.cshtml" />
     <Content Include="Areas\Dashboard\Views\Subjects\_Action.cshtml" />
     <Content Include="Areas\Dashboard\Views\Students\Registration.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Dashboard\Views\Shared\_Footer.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
