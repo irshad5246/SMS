@@ -224,6 +224,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Dashboard\Content\dist\adminlte.min.css" />
+    <Content Include="Areas\Dashboard\Content\img\siteLogo.png" />
+    <Content Include="Areas\Dashboard\Content\img\smsLogo.png" />
     <Content Include="Areas\Dashboard\Content\img\AdminLTELogo.png" />
     <Content Include="Areas\Dashboard\Content\img\logo-xl.png" />
     <Content Include="Areas\Dashboard\Content\img\logo-xs.png" />
